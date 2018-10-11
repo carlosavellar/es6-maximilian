@@ -1,0 +1,19 @@
+Extending built-in objects
+class Convertable extends Array{
+    convert(){
+        let arrayToconvert = [];
+        this.forEach(value => arrayToconvert.push('Converted ' + value));
+        return arrayToconvert;
+    }
+}
+
+let convArray = new Convertable();
+convArray.push(1);
+convArray.push(2);
+convArray.push(3);
+console.log(convArray.convert());
+
+---\
+
+\
+Symbols
