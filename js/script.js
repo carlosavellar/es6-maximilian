@@ -82,22 +82,46 @@ console.log(convArray.convert());
 //  console.log(carlos.__proto__);
 //  console.log(carlos.__proto__ === Person.prototype);
 
-let array = [ 1,2,3];
+// let array = [ 1,2,3];
 
-let alwaysValue = 11;
-array[Symbol.iterator] = () =>{
-    return {
-        next: ()=>{
-            alwaysValue++;
-            return{
-                done: alwaysValue > 15 ? true : false,
-                value: alwaysValue
-            };
-        }
-    };
-}
-const it  = array[Symbol.iterator]();
+// let alwaysValue = 11;
+// array[Symbol.iterator] = () =>{
+//     return {
+//         next: ()=>{
+//             alwaysValue++;
+//             return{
+//                 done: alwaysValue > 15 ? true : false,
+//                 value: alwaysValue
+//             };
+//         }
+//     };
+// }
+// const it  = array[Symbol.iterator]();
 
-for(const element of array){
-    console.log(element);
+// for(const element of array){
+//     console.log(element);
+// }
+
+
+const person ={
+    name: 'JOsé Carlos',
+    hobbies: ['Bicicleta','Video Game', 'Meditação'],
+    [Symbol.iterator]: function(){
+        let i = 0;
+        let hobbies = this.hobbies;
+        return{
+            next: function(){
+                let value = hobbies[i];
+                i++;
+                return{
+                    done: i > hobbies.length ? true : false,
+                    value: value
+                };
+            }
+        };
+    }
+};
+// const person = new Person();
+for(let hobby of person){
+    console.log(hobby);
 }
