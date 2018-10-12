@@ -90,22 +90,14 @@ array[Symbol.iterator] = () =>{
         next: ()=>{
             alwaysValue++;
             return{
-                done: false,
+                done: alwaysValue > 15 ? true : false,
                 value: alwaysValue
             };
         }
     };
 }
-
-
-
 const it  = array[Symbol.iterator]();
 
-
-
-
-console.log(typeof it);
-console.log(it.next());
-console.log(it.next());
-console.log(it.next());
-console.log(it.next());
+for(const element of array){
+    console.log(element);
+}
