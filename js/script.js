@@ -64,8 +64,20 @@ const addArray = (...tddArray) =>{
 
 console.log(addArray(12,345,66));
 
-import { car } from 'modules.js';
-console.log(car);
 
 
 
+class Person{
+    constructor(name){
+        this.name = name;
+    }
+    sayName(){
+        console.log(this.name);
+    }
+}
+
+const carlos = new Person('José Carlos');
+carlos.sayName();
+
+ console.log(carlos.__proto__);
+ console.log(carlos.__proto__ === Person.prototype);
