@@ -36,48 +36,76 @@ console.log(convArray.convert());
 
  */
 
- let newSymbol = Symbol('Love');
- console.log(typeof newSymbol);
+//  let newSymbol = Symbol('Love');
+//  console.log(typeof newSymbol);
  
- let symbolCar = {
-     name: 'Ferrai',
-     pais: 'Italy',
-     [Symbol]: 22,
-     "Love me": "Total love",
-     "roma 1"(){
-         return this.pais;
-     }
-    }
-console.log(symbolCar["Love me"]);
-console.log(symbolCar["roma 1"]());
+//  let symbolCar = {
+//      name: 'Ferrai',
+//      pais: 'Italy',
+//      [Symbol]: 22,
+//      "Love me": "Total love",
+//      "roma 1"(){
+//          return this.pais;
+//      }
+//     }
+// console.log(symbolCar["Love me"]);
+// console.log(symbolCar["roma 1"]());
 
 
 
-const theArray = [ 23, 45, 56];
-const addArray = (...tddArray) =>{
-    let resultado = 0;
-     for(var i=0; i < tddArray.length; i++){
-        resultado += tddArray[i];
-     }
-     return resultado;
-};
+// const theArray = [ 23, 45, 56];
+// const addArray = (...tddArray) =>{
+//     let resultado = 0;
+//      for(var i=0; i < tddArray.length; i++){
+//         resultado += tddArray[i];
+//      }
+//      return resultado;
+// };
 
-console.log(addArray(12,345,66));
-
-
+// console.log(addArray(12,345,66));
 
 
-class Person{
-    constructor(name){
-        this.name = name;
-    }
-    sayName(){
-        console.log(this.name);
-    }
+
+
+// class Person{
+//     constructor(name){
+//         this.name = name;
+//     }
+//     sayName(){
+//         console.log(this.name);
+//     }
+// }
+
+// const carlos = new Person('José Carlos');
+// carlos.sayName();
+
+//  console.log(carlos.__proto__);
+//  console.log(carlos.__proto__ === Person.prototype);
+
+let array = [ 1,2,3];
+
+let alwaysValue = 11;
+array[Symbol.iterator] = () =>{
+    return {
+        next: ()=>{
+            alwaysValue++;
+            return{
+                done: false,
+                value: alwaysValue
+            };
+        }
+    };
 }
 
-const carlos = new Person('José Carlos');
-carlos.sayName();
 
- console.log(carlos.__proto__);
- console.log(carlos.__proto__ === Person.prototype);
+
+const it  = array[Symbol.iterator]();
+
+
+
+
+console.log(typeof it);
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());

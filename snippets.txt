@@ -18,3 +18,5 @@ console.log(convArray.convert());
 \
 Symbols
 To make Symbols to sgare the same ID use trghe method .for() .
+
+to make any object iterateble: .[Symble=.iterator]();
